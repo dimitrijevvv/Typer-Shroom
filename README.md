@@ -1,14 +1,15 @@
 # Typer Shroom
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/21fb61256e9c41619d1ae0b3078ab8ee)](https://app.codacy.com/gh/matf-pp/2026_Typer-Shroom/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+A C# and MonoGame typing game where you defend a mushroom from waves of bugs by typing the words they carry.
 
-A typing game built with C# and MonoGame where bugs crawl toward your mushroom, and you must type their words before they reach it.
+> Team project for the **Programming Paradigms** course at the Faculty of Mathematics, University of Belgrade.
+> Originally developed at [matf-pp/2026_Typer-Shroom](https://github.com/matf-pp/2026_Typer-Shroom). Full development history, including [pull requests and code reviews](https://github.com/matf-pp/2026_Typer-Shroom/pulls), is available there.
 
 ## Gameplay
 
-Waves of bugs march across the screen toward a mushroom on the right. Each bug carries a word above it. Start typing any word to lock onto that bug and kill it before it reaches the mushroom. If a bug makes it through, the mushroom takes damage. You have **3 lives**.
+Waves of bugs march across the screen toward a mushroom on the right, each carrying a word above it. Start typing a word to lock onto that bug, and finish it to squash the bug before it reaches the mushroom. Every bug that gets through damages the mushroom, and you have **3 lives**.
 
-Each wave adds more bugs and increases spawn/movement speed, so later waves require fast and accurate typing.
+Each wave brings more bugs that spawn and move faster, so later waves demand both speed and accuracy.
 
 ## Screenshots
 
@@ -17,8 +18,7 @@ Each wave adds more bugs and increases spawn/movement speed, so later waves requ
 ![Gameplay 2](screenshots/03_1_heart_left.png)
 ![Game Over and High Scores](screenshots/04_game_over_results.png)
 
-
-### Controls
+## Controls
 
 | Key | Action |
 |-----|--------|
@@ -29,33 +29,48 @@ Each wave adds more bugs and increases spawn/movement speed, so later waves requ
 
 ## Features
 
-- 6 animated bug types: spider, ant, fly, mosquito, worm, butterfly
-- Mushroom with 4 progressive damage states and hit flash
-- Splash death animation when a bug is killed
-- Background music + mistype, squash, and eat sound effects
-- Wave cleared notification between waves
-- Lives displayed as hearts in the HUD
-- Game over → name entry → result screen (top 5) → main menu
+- 6 animated bug types: spider, ant, fly, mosquito, worm and butterfly
+- Mushroom with 4 progressive damage states and a hit flash
+- Splash death animation when a bug is squashed
+- Background music plus mistype, squash and eat sound effects
+- Wave-cleared notification between waves
+- Lives shown as hearts in the HUD
+- Game over → name entry → results screen (top 5) → main menu
 - Local high scores (top 10) saved to `scores.json`
 
 ## Project Structure
 
 ```
 TyperShroom.Core/    — Game logic (GameEngine, Bug, GameState, WordManager)
-TyperShroom.UI/      — MonoGame frontend, screens, rendering
+TyperShroom.UI/      — MonoGame frontend, screens and rendering
 TyperShroom.Data/    — Score persistence (ScoreRepository → scores.json)
 TyperShroom.Tests/   — Console test runner
 ```
 
+The game logic in `Core` is kept separate from the MonoGame frontend in `UI`, so it can be tested on its own.
+
 ## Running the Game
 
-### Linux
+### From source
+
+Requires the [.NET SDK](https://dotnet.microsoft.com/download).
+
+```bash
+git clone https://github.com/dimitrijevvv/Typer-Shroom.git
+cd Typer-Shroom
+dotnet run --project TyperShroom.UI
+```
+
+### From a published build
+
+**Linux**
 ```bash
 chmod +x TyperShroom.UI
 ./TyperShroom.UI
 ```
 
-### Windows
+**Windows**
+
 Run `TyperShroom.UI.exe` from the publish folder.
 
 ## Authors
@@ -63,4 +78,3 @@ Run `TyperShroom.UI.exe` from the publish folder.
 - Dimitrije Vujko
 - Mihajlo Tasić
 - Sreten Milekić
-
